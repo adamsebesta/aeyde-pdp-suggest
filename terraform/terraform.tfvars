@@ -1,0 +1,1 @@
+lamda_function_name = "pdp-dynamic-suggested-products-cron"

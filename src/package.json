@@ -1,0 +1,31 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "Code used to host and generate the lists required for the aeyde.com product pages 'suggests products' section.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "build:js": "esbuild services/index.ts --bundle --platform=node --target=node12 --format=cjs --outdir=dist",
+    "test": "jest",
+    "build": "npm run build:types && npm run build:js && npm test",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.110",
+    "@types/jest": "^29.5.1",
+    "esbuild": "^0.17.5",
+    "esbuild-plugin-tsc": "^0.3.1",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0"
+  },
+  "dependencies": {
+    "@looker/sdk-node": "^23.6.0",
+    "dotenv": "^16.0.3",
+    "graphql": "^16.6.0",
+    "graphql-request": "^3.7.0",
+    "shopify-api-node": "^3.12.3"
+  }
+}
